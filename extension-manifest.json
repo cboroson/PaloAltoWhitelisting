@@ -1,0 +1,71 @@
+{
+  "manifestVersion": 1,
+  "id": "cboroson2-PaloAltoWhitelisting",
+  "name": "Manage Palo Alto Global Protect client routing.",
+  "version": "1.0.3",
+  "publisher": "cboroson2",
+  "public": false,
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "Manage Palo Alto Global Protect client routing.",
+  "scopes": [
+    "vso.build",
+    "vso.serviceendpoint"
+  ],    
+  "categories": [
+    "Azure Pipelines"
+  ],
+  "tags": [
+    "Palo Alto",
+    "Whitelisting",
+    "Global Protect"
+  ],
+  "content": {
+    "details": {
+      "path": "readme.md"
+    },
+    "license": {
+      "path": "PaloAltoWhitelisting-extension/license.txt"
+    }
+  },
+  "links": {
+    "getstarted": {
+      "uri": "https://github.com/cboroson/PaloAltoWhitelisting"
+    },
+    "support": {
+      "uri": "https://github.com/cboroson/PaloAltoWhitelisting"
+    }
+  },
+
+
+
+  "branding": {
+    "color": "rgb(36, 43, 50)",
+    "theme": "dark"
+  },
+  "icons": {
+    "default": "PaloAltoWhitelisting-extension/images/pdicon.png"
+  },
+  "files": [
+  {
+    "path": "PaloAltoWhitelisting-release", "addressable": true
+  }
+],
+
+  "contributions": [
+    {
+      "id": "PaloAltoWhitelisting",
+      "type": "ms.vss-distributed-task.task",
+      "description": "Manage Palo Alto Global Protect client routing.",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "PaloAltoWhitelisting-release"
+      }
+    }
+  ]
+}

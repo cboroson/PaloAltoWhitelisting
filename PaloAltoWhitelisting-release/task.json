@@ -1,0 +1,121 @@
+{
+  "id": "5394b03f-ce06-45d2-9c29-102586754e38",
+  "name": "cboroson2-PaloAltoWhitelisting",
+  "friendlyName": "Manage Palo Alto Global Protect client routing",
+  "description": "Manage Palo Alto Global Protect client routing.",
+  "helpMarkDown": "[More Information, setup...](https://github.com/cboroson/PaloAltoWhitelisting)",
+  "category": "Utility",
+  "author": "Craig Boroson",
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 3
+  },
+  "demands": [ "azureps" ],
+  "visibility": [
+    "Release",
+    "Build"
+  ],
+  "minimumAgentVersion": "1.102.0",
+  "groups": [
+    {
+      "name": "Regions",
+      "displayName": "Azure regions to whitelist",
+      "isExpanded": true
+    },
+    {
+      "name": "Services",
+      "displayName": "Azure services to whitelist for regions selected above",
+      "isExpanded": true
+    }
+  ],
+  "inputs": [
+    {
+      "name": "PaloName",
+      "type": "string",
+      "label": "Hostname of the Palo Alto firewall",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "This is the hostname tied to the management interface of the Palo Alto firewall (e.g. fw1-mgmt.example.com)."
+    },
+    {
+      "name": "username",
+      "type": "string",
+      "label": "User with Palo Alto API access",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "This is the Palo Alto user with access to the XML API."
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "label": "Password for the Palo Alto user",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "This is the password for the user with access to the XML API."
+    },
+    {
+      "name": "DryRun",
+      "type": "boolean",
+      "label": "Dry Run",
+      "defaultValue": "True",
+      "required": true,
+      "helpMarkDown": "Displays changes that would be made but makes no changes."
+    },
+    {
+      "name": "EastUS2",
+      "type": "boolean",
+      "label": "East US 2",
+      "defaultValue": "False",
+      "required": true,
+      "groupName": "Regions",
+      "helpMarkDown": "Include all East US 2 IP ranges for the services selected below."
+    },
+    {
+      "name": "CentralUS",
+      "type": "boolean",
+      "label": "Central US",
+      "defaultValue": "False",
+      "required": true,
+      "groupName": "Regions",
+      "helpMarkDown": "Include all Central US IP ranges for the services selected below."
+    },
+    {
+      "name": "CosmosDB",
+      "type": "boolean",
+      "label": "CosmosDB",
+      "defaultValue": "False",
+      "required": true,
+      "groupName": "Services",
+      "helpMarkDown": "Include all Cosmos DB IP ranges for the regions selected above."
+    },
+    {
+      "name": "SQL",
+      "type": "boolean",
+      "label": "SQL",
+      "defaultValue": "False",
+      "required": true,
+      "groupName": "Services",
+      "helpMarkDown": "Include all PaaS SQL IP ranges for the regions selected above."
+    },
+    {
+      "name": "Storage",
+      "type": "boolean",
+      "label": "Storage",
+      "defaultValue": "False",
+      "required": true,
+      "groupName": "Services",
+      "helpMarkDown": "Include all Storage Account IP ranges for the regions selected above."
+    }
+  ],
+  "dataSourceBindings": [
+  ],
+  "instanceNameFormat": "Manage Palo Alto Global Protect client routing",
+  "execution": {
+    "PowerShell3": {
+      "target": "$(currentDirectory)\\PaloAltoWhitelisting.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)"
+    }
+  }
+}
